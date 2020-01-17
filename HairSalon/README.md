@@ -14,8 +14,8 @@ _A salon owner is able to add stylists to a database and have those stylists lis
 * _Command in terminal "dotnet restore" to restore dependencies._
 *_Open MySQL workbench._
     *_Create a new schema in the connected server._
-    *_In the new schema, create a table for "stylists." Create columns as follows (StylistId serial PRIMARY KEY, Details VARCHAR(255)). Click Apply to save table._
-    *_Create another table called "clients". Create columns as follows (ClientId serial PRIMARY KEY, SylistId int). Click apply._
+    *_In the new schema, create a table for "stylist." Create columns as follows (StylistId serial PRIMARY KEY, Details VARCHAR(255)). Click Apply to save table._
+    *_Create another table called "client". Create columns as follows (ClientId serial PRIMARY KEY, SylistId int). Click apply._
     *_Open program file in VSCode. Go into appsettings.json and change database to equal the name of your schema._
 * _Command "dotnet run"_
 * _Open local host in web browser and navigate through website._
