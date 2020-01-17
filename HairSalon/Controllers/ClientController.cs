@@ -57,9 +57,10 @@ namespace Salon.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public ActionResult Delete(Client theClient)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteForReal(int id)
         {
+            Client theClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
             _db.Client.Remove(theClient);
             _db.SaveChanges();
             return RedirectToAction("Details", "Stylist", new { id = theClient.StylistId});

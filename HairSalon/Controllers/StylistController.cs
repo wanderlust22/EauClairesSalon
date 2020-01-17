@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Salon.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Salon.Controllers
 {
@@ -39,6 +40,35 @@ namespace Salon.Controllers
             List<Client> theirClients = _db.Client.Where(client => client.StylistId == id).ToList();
             ViewBag.theirClients = theirClients;
             return View(theStylist);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            Client model = _db.Client.FirstOrDefault(client => client.ClientId == id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Client theClient)
+        {
+            _db.Entry(theClient).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Stylist", new { id = theClient.StylistId});
+        }
+        
+        public ActionResult Delete(int id)
+        {
+            Client model = _db.Client.FirstOrDefault(client => client.ClientId == id);
+            return View(model);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteForReal(int id)
+        {
+            Client theClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
+            _db.Client.Remove(theClient);
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Stylist", new { id = theClient.StylistId});
         }
     }
     
