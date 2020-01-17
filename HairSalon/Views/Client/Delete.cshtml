@@ -1,0 +1,12 @@
+@model Salon.Models.Client;
+
+<h1>This page is to delete @Model.Name from your client roster</h1>
+
+<h3>Are you sure you want to delete them?</h3>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+
+<@Html.ActionLink("Back to your stylist's roster", "Details", "Stylist", new { id = @Model.StylistId}) />
