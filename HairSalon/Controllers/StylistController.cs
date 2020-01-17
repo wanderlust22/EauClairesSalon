@@ -44,31 +44,36 @@ namespace Salon.Controllers
 
         public ActionResult Edit(int id)
         {
-            Client model = _db.Client.FirstOrDefault(client => client.ClientId == id);
+            Stylist model = _db.Stylist.FirstOrDefault(stylist => stylist.StylistId == id);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(Client theClient)
+        public ActionResult Edit(Stylist theStylist)
         {
-            _db.Entry(theClient).State = EntityState.Modified;
+            _db.Entry(theStylist).State = EntityState.Modified;
             _db.SaveChanges();
-            return RedirectToAction("Details", "Stylist", new { id = theClient.StylistId});
+            return RedirectToAction("Details", new { id = theStylist.StylistId});
         }
         
         public ActionResult Delete(int id)
         {
-            Client model = _db.Client.FirstOrDefault(client => client.ClientId == id);
+            Stylist model = _db.Stylist.FirstOrDefault(stylist => stylist.StylistId == id);
             return View(model);
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteForReal(int id)
         {
-            Client theClient = _db.Client.FirstOrDefault(client => client.ClientId == id);
-            _db.Client.Remove(theClient);
+            Stylist theStylist = _db.Stylist.FirstOrDefault(stylist => stylist.StylistId == id);
+            _db.Stylist.Remove(theStylist);
+            List<Client> clientList = _db.Client.Where(client => client.StylistId == id).ToList();
+            foreach (Client client in clientList)
+            {
+                _db.Client.Remove(client);
+            }
             _db.SaveChanges();
-            return RedirectToAction("Details", "Stylist", new { id = theClient.StylistId});
+            return RedirectToAction("Index");
         }
     }
     
