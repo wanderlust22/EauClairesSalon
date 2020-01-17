@@ -12,13 +12,34 @@ _A salon owner is able to add stylists to a database and have those stylists lis
 
 * _Clone from github repository._
 * _Command in terminal "dotnet restore" to restore dependencies._
-*_Open MySQL workbench._
-*_Create a new schema in the connected server._
-*_In the new schema, create a table for "stylist." Create columns as follows (StylistId serial PRIMARY KEY, Name VARCHAR(255), Details VARCHAR(255)). Click Apply to save table._
-*_Create another table called "client". Create columns as follows (ClientId serial PRIMARY KEY, SylistId int, Name VARCHAR (255)). Click apply._
-*_Open program file in VSCode. Go into appsettings.json and change database to equal the name of your schema._
+* _Open MySQL workbench._
+* _Create a new schema in the connected server._
+* _In the new schema, create a table for "stylist." Create columns as follows (StylistId serial PRIMARY KEY, Name VARCHAR(255), Details VARCHAR(255)). Click Apply to save table._
+* _Create another table called "client". Create columns as follows (ClientId serial PRIMARY KEY, SylistId int, Name VARCHAR (255)). Click apply._
+* _Open program file in VSCode. Go into appsettings.json and change database to equal the name of your schema._
 * _Command "dotnet run"_
 * _Open local host in web browser and navigate through website._
+
+## SQL STATEMENTS
+
+#### Sylist Table
+_CREATE TABLE `stylist` (
+  `StylistId` int(11) NOT NULL AUTO_INCREMENT,
+  `Details` varchar(255) DEFAULT NULL,
+  `Name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`StylistId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;_
+
+#### Client Table
+
+_CREATE TABLE `client` (
+  `ClientId` int(11) NOT NULL AUTO_INCREMENT,
+  `StylistId` int(11) DEFAULT NULL,
+  `Name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ClientId`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;_
+
+
 
 ## Specifications
 | Specs  | Example Input  | Example Output  | 
