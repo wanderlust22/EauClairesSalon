@@ -11,7 +11,7 @@
 <ul>
     @foreach(Client client in ViewBag.theirClients)
     {
-    <li></li>
+    <li>@Html.ActionLink($"{client.Name}", "Details", "Client", new { id = client.ClientId})</li>
     }
 
 </ul>

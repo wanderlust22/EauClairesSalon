@@ -1,0 +1,13 @@
+@model Salon.Models.Client;
+
+<h1>Fill out the form to add a client to @ViewBag.theStylist.Name + 's roster</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    <input type="hidden" value="@ViewBag.theStylist.StylistId" name="StylistId" />
+
+    <input type="submit" value="Add this client to the roster" />
+}
