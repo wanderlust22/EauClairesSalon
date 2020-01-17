@@ -1,6 +1,9 @@
 @model Salon.Models.Client;
+@{
+    Layout = "_Layout";
+}
 
-<h1>Fill out the form to add a client to @ViewBag.theStylist.Name's roster</h1>
+<h1 class="jumbotron">Fill out the form to add a client to @ViewBag.theStylist.Name's roster</h1>
 
 @using (Html.BeginForm())
 {

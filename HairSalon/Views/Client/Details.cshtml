@@ -1,4 +1,8 @@
-<h1>This page concerns your customer @Model.Name</h1>
+@{
+    Layout = "_Layout";
+}
+
+<h1 class="jumbotron">This page concerns your customer @Model.Name</h1>
 
 <p>@Html.ActionLink("Click here to Edit their name", "Edit", new { id = @Model.ClientId})</p>
 

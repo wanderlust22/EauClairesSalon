@@ -1,0 +1,15 @@
+.jumbotron {
+    background-color: #FCBA5F;
+    text-align: center;
+}
+
+body {
+    background-image: url("https://thumbs.dreamstime.com/b/shinny-sun-winter-woman-hair-yellow-sunshine-card-long-negative-space-snowflakes-floating-96939061.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+p, li, h3 {
+    text-align: center;
+}
