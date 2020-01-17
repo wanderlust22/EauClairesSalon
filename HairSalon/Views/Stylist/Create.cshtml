@@ -1,0 +1,16 @@
+@model Salon.Models.Stylist;
+
+<h2>Fill out the form below to add a new stylist to your records</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Details)
+    @Html.TextBoxFor(model => model.Details)
+
+    <input type="submit" value="Add new stylist" />
+}
+
+<p>@Html.ActionLink("Go back to your stylist index", "Index")</p>

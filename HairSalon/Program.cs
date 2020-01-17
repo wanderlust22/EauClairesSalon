@@ -17,3 +17,4 @@ namespace Salon
       host.Run();
     }
   }
+}

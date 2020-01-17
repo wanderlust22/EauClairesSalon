@@ -3,6 +3,8 @@ namespace Salon.Models
     public class Stylist
     {
         public int StylistId { get; set; }
-        public string Details { get; set; 
+
+        public string Name { get; set; }
+        public string Details { get; set; }
     }
 }

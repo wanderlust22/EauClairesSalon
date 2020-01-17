@@ -1,0 +1,19 @@
+@using Salon.Models;
+
+<h1>@Model.Name</h1>
+
+<h3>@Model.Details</h3>
+
+@if(ViewBag.theirClients.Count == 0)
+{
+    <p>@Model.Name doesn't have any clients added to their roster yet. Click below to add their first!</p>
+}
+<ul>
+    @foreach(Client client in ViewBag.theirClients)
+    {
+    <li></li>
+    }
+
+</ul>
+
+<p>@Html.ActionLink("Add a new client for " + $"{@Model.Name}", "Create", "Client", new { id = Model.StylistId })</p>
